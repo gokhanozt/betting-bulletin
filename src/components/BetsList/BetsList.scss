@@ -1,0 +1,136 @@
+@use "../../styles/variables" as *;
+
+.bets-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.bets-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  text-align: center;
+
+  th,
+  td {
+    padding: 8px;
+    border: 1px solid $border-color;
+    white-space: nowrap;
+  }
+
+  tr:nth-child(even) {
+    background-color: $table-bg;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background-color: $table-header-bg;
+    z-index: 2;
+  }
+
+  td:first-child,
+  th:first-child {
+    position: sticky;
+    left: 0;
+    background-color: $sticky-col-bg;
+    z-index: 3;
+  }
+  th:first-child {
+    background-color: $table-header-bg;
+  }
+}
+
+.bet-option {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &.selected {
+    background-color: $selected-cell;
+  }
+
+  &.disabled {
+    cursor: default;
+    color: $light-disabled;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  button {
+    padding: 8px 12px;
+    margin: 0 10px;
+    background-color: $button-bg;
+    color: $dark-color;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:disabled {
+      background-color: $button-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.search-bar {
+  margin-bottom: 15px;
+  text-align: center;
+
+  input {
+    padding: 8px;
+    width: 300px;
+    font-size: 1em;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.bet-code {
+  font-weight: bold;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid $secondary-color;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .bets-table {
+    overflow-x: auto;
+  }
+
+  .bets-table th,
+  .bets-table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,29 @@
+@use "./variables" as *;
+@use "./mixins";
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  background: url(../assets/paper-bg.jpg) -2px -3px / cover no-repeat;
+}
+
+.App {
+  @include mixins.flex-center;
+
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: "Caesar Dressing", system-ui;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 46px;
+  color: $header-color;
+}
